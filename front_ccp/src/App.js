@@ -1,8 +1,14 @@
 import React from 'react';
+//import {ViewButton} from './components/ViewButton/index';<ViewButton >Funciona</ViewButton>
+import SideBar from './components/SideBar'
+import GlobalStyles from './style/GlobalStyle';
 
 function App() {
   return (
-    <h1>CCP System</h1>
+    <div>
+      <SideBar></SideBar>
+      <GlobalStyles></GlobalStyles>
+    </div>
   );
 }
 
