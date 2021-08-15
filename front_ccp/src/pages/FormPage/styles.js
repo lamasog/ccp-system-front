@@ -18,13 +18,14 @@ export const Column = styled.div`
 `;
 
 export const Row = styled.div`
-    width: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
     margin-bottom: -1vh;
 
     h4 {
         color: #1F4652;
+        font-size: 1.9vh;
         font-weight: normal;
         margin-top: 0.5vh;
         margin-left: 1vh;
@@ -32,28 +33,32 @@ export const Row = styled.div`
 `;
 
 export const Form = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-top: 6vh;
     margin-bottom: 3vh;
-    height: 80vh;
-    width: 95vh;
+    height: 81vh;
+    width: 96vh;
     background-color: #FFFFFF;
     border-radius: 10px;
     box-shadow: 3px 3px 5px;
     align-items: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-y: auto;
     
     h1 {
         color: #4A98B0;
         margin-top: 3vh;
         margin-bottom: 3vh;
         margin-left: 4vh;
+        font-size: 3.8vh;
         font-weight: normal;
     }
 
     h3 {
         color: #1F4652;
+        font-size: 2.3vh;
         font-weight: normal;
         align-self: flex-start;
         margin-top: 2.5vh;
@@ -117,24 +122,25 @@ export const RadioField = styled.input`
 `;
 
 export const Footer = styled.div`
-    margin-top: 3vh;
+    position: absolute;
+    bottom: 2.5vh;
     display: flex;
     flex-direction: row;
     align-items: center;
 `;
 
 export const Circle = styled.div`
-    margin: 0.5vh;
-    height: 2vh;
-    width: 2vh;
+    margin: 0.4vh;
+    height: 1.7vh;
+    width: 1.7vh;
     border-radius: 50%;
     background-color: #7D7D7D;
 `;
 
 export const CircleNow = styled.div`
-    margin: 0.5vh;
-    height: 2vh;
-    width: 2vh;
+    margin: 0.4vh;
+    height: 1.7vh;
+    width: 1.7vh;
     border-radius: 50%;
     background-color: #4A98B0;
 `;
