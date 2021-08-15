@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   :root {
@@ -6,6 +6,8 @@ export default createGlobalStyle`
     --color-background: #F4F4F4;
     --color-input-background: #F0F2F5; 
     --color-button-background: #4A98B0;
+    --color-exit-button-background: #D3D9DB;
+    --color-exit-text-background: #19A6C2;
     --color-primary-text: #1F4652;
     --color-secondary-text: #FFFFFF;
     --color-title-text: #0F2127;
