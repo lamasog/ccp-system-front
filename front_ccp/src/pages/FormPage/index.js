@@ -75,7 +75,7 @@ const FormPage = () => {
                         </Row>
                         <h3/>
 
-                        <h3> 9. Este relatório é referente a que semestre do seu curso (último semestre concluído)?: <i> Marcar apenas uma oval: </i> </h3>
+                        <h3> 9. Este relatório é referente a que semestre do seu curso (último semestre concluído)? <i> Marcar apenas uma oval: </i> </h3>
                         
                         <Footer>
                             <Circle/>
