@@ -5,7 +5,7 @@ import Folder from "../../assets/Home.svg";
 import { ContainerPage, ContainerMain, Header, Content } from "./style";
 import Exit2 from "../../assets/Exit2.svg";
 
-const StudentMainPage = () => {
+const ProfessorMainPage = () => {
 	return (
 		<ContainerPage>
 			<SideBarContainer>
@@ -14,7 +14,7 @@ const StudentMainPage = () => {
 			<ContainerMain>
 				<Header>
 					<div className="ContainerHeaderText">
-						<span className="headerText">Olá, Fulano</span>
+						<span className="headerText">Olá, Orientador</span>
 					</div>
 					<button className="buttonExit" type="submit">
 						Sair
@@ -25,25 +25,15 @@ const StudentMainPage = () => {
 				<Content>
 					<div className="containerContentInput">
 						<span className="contentText">
-							Você tem um novo formulário para responder
+							Novos formulários para avaliar
 						</span>
 						<button className="contentButton" type="submit">
 							Acessar formulário
 						</button>
 					</div>
-
 					<div className="containerContentInput">
 						<span className="contentText">
-							Visualizar formulários avaliados pelo orientador
-						</span>
-						<button className="contentButton" type="submit">
-							Visualizar
-						</button>
-					</div>
-
-					<div className="containerContentInput">
-						<span className="contentText">
-							Visualizar formulários avaliados pela CCP
+							Visualizar formulários já avaliados
 						</span>
 						<button className="contentButton" type="submit">
 							Visualizar
@@ -55,4 +45,4 @@ const StudentMainPage = () => {
 	);
 };
 
-export default StudentMainPage;
+export default ProfessorMainPage;
