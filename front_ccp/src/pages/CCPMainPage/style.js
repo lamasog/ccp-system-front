@@ -8,7 +8,7 @@ export const ContainerPage = styled.div`
 `;
 
 export const ContainerMain = styled.div`
-	width: 70%;
+	width: 75%;
 `;
 
 export const Header = styled.div`
