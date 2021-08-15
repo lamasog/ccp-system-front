@@ -28,7 +28,7 @@ const LoginPage = () => {
                             placeholder="Senha"
                             type="password"
                         />
-                        <Link to="/"><button className="buttonSubmit" type="submit">ENTRAR</button> </Link>
+                        <Link to="/"><button className="buttonSubmit" type="submit">Entrar</button> </Link>
                     </form>
                 </ContainerLogin>
             </ContainerMain>        

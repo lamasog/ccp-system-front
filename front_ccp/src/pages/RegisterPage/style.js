@@ -49,19 +49,19 @@ export const ContainerRegister = styled.div`
   }
   form {
     width: 100%;
-    height: 60%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
   }
-`;
-
-export const RadioContainer = styled.div`
-  color: black;
-  width: 30%;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  select{
+    width: 330px;
+    height: 40px;
+    background: #F7F3F3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-indent: 15px;
+    outline: 0;
+  }
 `;

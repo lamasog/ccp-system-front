@@ -1,12 +1,18 @@
-import React from 'react';
-import {ContainerPage, ContainerMain, ContainerRegister, RadioContainer} from './style'
+import React, {useState} from 'react';
+import {ContainerPage, ContainerMain, ContainerRegister} from './style'
 import {Input} from '../../components/Input/index'
 import { Link } from 'react-router-dom';
 import {SideBarContainer} from '../../components/SideBar'
 import Folder from '../../assets/Folder.svg' 
 
-function Register() {
+function Register(props) {
+    const [inputAluno, setInputAluno] = useState("Orientador");
 
+
+    function handleMenuClick(e) {
+        setInputAluno(e.target.value);
+
+      }
   return (
     <ContainerPage>
         <ContainerMain>
@@ -27,7 +33,7 @@ function Register() {
                     />
                     <Input 
                         placeholder="Matricula"
-                        type="name"
+                        type="number"
                     />
                     <Input 
                         placeholder="E-Mail" 
@@ -38,17 +44,19 @@ function Register() {
                         placeholder="Senha"
                         type="password"
                     />
-                    <RadioContainer>
-                        <div>
-                            <input type="radio" id="Professor" name="drone" value="Professor"/>
-                            <label for="Professor">Professor</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="Aluno" name="drone" value="Aluno  "/>
-                            <label for="Aluno">Aluno</label>
-                        </div>
-                    </RadioContainer>
-                    <Link to="/"><button className="buttonSubmit" type="submit">CADASTRAR</button></Link>
+                    <select value={inputAluno} onChange={handleMenuClick}>
+                        <option value="Orientador">Orientador</option>
+                        <option value="Aluno">Aluno</option>
+                    </select>
+                    {inputAluno==="Aluno" ? <Input placeholder="Nome do Orientador"/> : <></>}
+                    {inputAluno==="Aluno" ? 
+                        <select>
+                            <option value="Mestrado">Mestrado</option>
+                            <option value="Doutorado">Doutorado</option>
+                        </select>
+                     : <></>}
+                    {inputAluno==="Aluno" ?<Link to="/student"><button className="buttonSubmit" type="submit">Cadastrar</button></Link>
+                        : <Link to="/form"><button className="buttonSubmit" type="submit">Cadastrar</button></Link>}
                 </form>
             </ContainerRegister>
         </ContainerMain>        
