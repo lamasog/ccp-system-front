@@ -18,7 +18,7 @@ export const ContainerMain = styled.div`
 `;
 
 export const ContainerLogin = styled.div`
-	width: 70%;
+	width: 75%;
 	height: 70vh;
 	margin-top: 5rem;
 	margin-bottom: 6rem;

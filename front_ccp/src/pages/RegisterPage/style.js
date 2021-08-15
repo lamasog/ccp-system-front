@@ -17,7 +17,7 @@ export const ContainerMain = styled.div`
 `;
 
 export const ContainerRegister = styled.div`
-  width: 70%;
+  width: 75%;
   height: 100vh;
   margin-top: 5rem;
   margin-bottom: 6rem;
