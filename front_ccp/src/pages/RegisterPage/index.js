@@ -56,7 +56,7 @@ function Register(props) {
                         </select>
                      : <></>}
                     {inputAluno==="Aluno" ?<Link to="/student"><button className="buttonSubmit" type="submit">Cadastrar</button></Link>
-                        : <Link to="/form"><button className="buttonSubmit" type="submit">Cadastrar</button></Link>}
+                        : <Link to="/professor"><button className="buttonSubmit" type="submit">Cadastrar</button></Link>}
                 </form>
             </ContainerRegister>
         </ContainerMain>        
