@@ -26,17 +26,6 @@ const FormPage = () => {
                         <h3> 5. Link para o curriculum lattes: </h3>
                         < SmallTextField type = "link" id = "p05" />    {/*questão 05*/}
 
-                        <Footer>
-                            <CircleNow/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                        </Footer>
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
@@ -77,17 +66,6 @@ const FormPage = () => {
 
                         <h3> 9. Este relatório é referente a que semestre do seu curso (último semestre concluído)? <i> Marcar apenas uma oval: </i> </h3>
                         
-                        <Footer>
-                            <Circle/>
-                            <CircleNow/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                        </Footer>
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
@@ -154,17 +132,6 @@ const FormPage = () => {
                         <h3> 11. Em quantas disciplinas obrigatórias você já obteve aprovação? </h3>
                         < SmallTextField type = "text" id = "p11" />    {/*questão 11*/}
                         
-                        <Footer>
-                            <Circle/>
-                            <Circle/>
-                            <CircleNow/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                        </Footer>
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
@@ -201,17 +168,6 @@ const FormPage = () => {
 
                         <h3> 15. Em quantas disciplinas você foi reprovado no último semestre cursado? <i> Marcar apenas uma oval: </i> </h3>
 
-                        <Footer>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <CircleNow/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                        </Footer>
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
@@ -268,17 +224,6 @@ const FormPage = () => {
                             <h4> Menos de 3 meses. </h4>
                         </Row>
 
-                        <Footer>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <CircleNow/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                        </Footer>
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
@@ -329,17 +274,6 @@ const FormPage = () => {
                         </Row>
                         <h3/>
 
-                        <Footer>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <CircleNow/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                        </Footer>
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
@@ -393,17 +327,6 @@ const FormPage = () => {
                         
                         <h3> 23. Qual o estágio atual de sua pesquisa? Apresente toda e qualquer atividade que já tenha sido realizada no contexto de seu projeto de pesquisa (mesmo que ainda incompleta). Faça uma descrição detalhada. </h3>
 
-                        <Footer>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <CircleNow/>
-                            <Circle/>
-                            <Circle/>
-                        </Footer>
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
@@ -417,17 +340,6 @@ const FormPage = () => {
 
                         <h3> 25. Você participou de algum congresso no exterior? Se sim, indicar local e se houve apresentação de trabalho. </h3>
 
-                        <Footer>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <Circle/>
-                            <CircleNow/>
-                            <Circle/>
-                        </Footer>
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
