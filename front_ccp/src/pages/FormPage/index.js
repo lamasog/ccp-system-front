@@ -1,15 +1,16 @@
 import React from "react";
-import { Wrapper, Column, Row, Form, GrayLine, SmallTextField, RadioField, LargeTextField, ButtonField, Footer, Circle, CircleNow } from "./styles";
+import { Wrapper, Column, Row, ExitButton, Form, GrayLine, SmallTextField, RadioField, LargeTextField, ButtonField } from "./styles";
 
 
 const FormPage = () => {
     return (
         <>
             <Wrapper>
+                <ExitButton id = "voltar"> Voltar </ExitButton>
                 <Column>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1/9 </h1>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1/9 </h1>
                         < GrayLine />
                         <h3> 1. E-mail: </h3>
                         < SmallTextField type = "email" id = "p01" />   {/*questão 01*/}
@@ -29,7 +30,7 @@ const FormPage = () => {
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2/9 </h1>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2/9 </h1>
                         < GrayLine />
                         <h3> 6. Data da última atualização do lattes: </h3>
                         < SmallTextField type = "text" placeholder = "exemplo: 7 de janeiro de 2019" id = "p06" />      {/*questão 06*/}
@@ -69,7 +70,7 @@ const FormPage = () => {
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3/9 </h1>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3/9 </h1>
                         < GrayLine />
                         <h3/>
                         <Row>
@@ -135,7 +136,7 @@ const FormPage = () => {
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4/9 </h1>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4/9 </h1>
                         < GrayLine />
                         <h3> 12. Em quantas disciplinas optativas você já obteve aprovação? </h3>
                         < SmallTextField type = "text" id = "p12" />    {/*questão 12*/}
@@ -171,7 +172,7 @@ const FormPage = () => {
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5/9 </h1>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5/9 </h1>
                         < GrayLine />
                         <h3/>
                         <Row>
@@ -227,7 +228,7 @@ const FormPage = () => {
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6/9 </h1>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6/9 </h1>
                         < GrayLine />
                         <h3/>
                         <Row>
@@ -277,7 +278,7 @@ const FormPage = () => {
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7/9 </h1>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7/9 </h1>
                         < GrayLine />
                         <h3> 21. Quantos artigos você submeteu e ainda estão aguardando resposta? <i> Marcar apenas uma oval: </i> </h3>
                         <Row>
@@ -330,7 +331,7 @@ const FormPage = () => {
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8/9 </h1>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8/9 </h1>
                         < GrayLine />
                         <h3/>
                         < LargeTextField rows = "4" id = "p23" />       {/*questão 23*/}
@@ -343,7 +344,7 @@ const FormPage = () => {
                     </Form>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9/9 </h1>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9/9 </h1>
                         < GrayLine />
                         <h3/>
                         < LargeTextField rows = "4" id = "p25" />       {/*questão 25*/}
@@ -354,7 +355,7 @@ const FormPage = () => {
                         <h3> 27. Você tem algo a mais a declarar para a CCP - PPgSI? </h3>
                         < LargeTextField rows = "4" id = "p27" />       {/*questão 27*/}
 
-                        <ButtonField id = "submit"> Enviar </ButtonField>
+                        <ButtonField id = "submit" type = "submit"> Enviar </ButtonField>
                     </Form>
                 </Column>
             </Wrapper>
