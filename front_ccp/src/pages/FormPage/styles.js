@@ -5,14 +5,14 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-around;
     height: 100vh;
-    width: 100vh;
+    width: 100vw;
 `;
 
 export const Column = styled.div`
     display: flex;
     flex-direction: column;
     height: 800vh;
-    width: 100vh;
+    width: 98vw;
     align-items: center;
     overflow-y: auto;
 `;
@@ -24,12 +24,36 @@ export const Row = styled.div`
     margin-bottom: -1vh;
 
     h4 {
-        color: #1F4652;
-        font-size: 1.9vh;
+        color: var(--color-primary-text);
+        font-size: 1vw;
         font-weight: normal;
         margin-top: 0.5vh;
         margin-left: 1vh;
     }
+`;
+
+export const ExitButton = styled.div`
+	width: 9vw;
+	height: 6.75vh;
+	background: var(--color-exit-button-background);
+	color: var(--color-exit-text-background);
+    position: fixed;
+	border: 0;
+	border-radius: 50px;
+    margin-top: 6vh;
+    margin-left: -82.5vw;
+	cursor: pointer;
+	font-size: 1.125vw;
+    font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	transition: 0.2s;
+	box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+
+    :hover { opacity: 0.8; }
 `;
 
 export const Form = styled.div`
@@ -39,8 +63,8 @@ export const Form = styled.div`
     margin-top: 6vh;
     margin-bottom: 3vh;
     height: 81vh;
-    width: 96vh;
-    background-color: #FFFFFF;
+    width: 51vw;
+    background-color: var(--color-secondary-text);
     border-radius: 10px;
     box-shadow: 3px 3px 5px;
     align-items: center;
@@ -48,17 +72,17 @@ export const Form = styled.div`
     overflow-y: auto;
     
     h1 {
-        color: #4A98B0;
+        color: var(--color-button-background);
         margin-top: 3vh;
         margin-bottom: 3vh;
         margin-left: 4vh;
-        font-size: 3.8vh;
+        font-size: 1.9vw;
         font-weight: normal;
     }
 
     h3 {
-        color: #1F4652;
-        font-size: 2.3vh;
+        color: var(--color-primary-text);
+        font-size: 1.15vw;
         font-weight: normal;
         align-self: flex-start;
         margin-top: 2.5vh;
@@ -78,18 +102,18 @@ export const GrayLine = styled.div`
 export const SmallTextField = styled.input`
     display: flex;
     height: 5vh;
-    width: 80vh;
+    width: 40vw;
     background-color: #E5E5E5;
     color: #7D7D7D;
     border-style: none;
     border-radius: 10px;
     box-shadow: 2px 2px 2px;
-    font-size: 2.25vh;
+    font-size: 1.125vw;
     padding: 3vh;
     overflow-y: auto;
 
     :hover {
-        box-shadow: 0 0 10px #4A98B0;
+        box-shadow: 0 0 10px var(--color-exit-text-background);
         border-style: none;
     }
 `;
@@ -97,20 +121,20 @@ export const SmallTextField = styled.input`
 export const LargeTextField = styled.textarea`
     display: flex;
     height: 15vh;
-    width: 80vh;
+    width: 40vw;
     background-color: #E5E5E5;
     color: #707070;
     border-style: none;
     border-radius: 10px;
     box-shadow: 2px 2px 2px;
-    font-size: 2.25vh;
+    font-size: 1.125vw;
     padding-top: 1.5vh;
     padding-right: 3vh;
     padding-left: 3vh;
     overflow-y: auto;
 
     :hover {
-        box-shadow: 0 0 10px #4A98B0;
+        box-shadow: 0 0 10px var(--color-exit-text-background);
         border-style: none;
     }
 `;
@@ -119,46 +143,27 @@ export const RadioField = styled.input`
     display: flex;
     margin-top: 1.35vh;
     margin-left: 12vh;
-`;
-
-export const Footer = styled.div`
-    position: absolute;
-    bottom: 2.5vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-`;
-
-export const Circle = styled.div`
-    margin: 0.4vh;
-    height: 1.7vh;
-    width: 1.7vh;
-    border-radius: 50%;
-    background-color: #7D7D7D;
-`;
-
-export const CircleNow = styled.div`
-    margin: 0.4vh;
-    height: 1.7vh;
-    width: 1.7vh;
-    border-radius: 50%;
-    background-color: #4A98B0;
+    cursor: pointer;
 `;
 
 export const ButtonField = styled.button`
     margin-top: 3vh;
     display: flex;
     height: 7.5vh;
-    width: 15vh;
-    background-color: #4A98B0;
-    color: #1F4652;
-    border-style: 2px solid #1F4652;
-    border-radius: 7.5px;
-    text-align: center;
-    font-size: 2.25vh;
+    width: 10vw;
+    background-color: var(--color-exit-text-background);
+	color: var(--color-exit-button-background);
+    border: 0;
+	border-radius: 50px;
+	cursor: pointer;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+    font-size: 1.125vw;
     font-weight: bold;
     padding: 2vh;
-    padding-left: 4vh;
+    transition: 0.2s;
+	box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
 
-    :hover { box-shadow: 0 0 15px #4A98B0; }
+    :hover { opacity: 0.8; }
 `;
