@@ -1,12 +1,18 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Wrapper, Column, Row, ExitButton, Form, GrayLine, SmallTextField, RadioField, LargeTextField, ButtonField } from "./styles";
 
-
 const FormPage = () => {
+    
+    const history = useHistory();
+    const Link = () => {                // para poder voltar para a página anterior //
+        history.push("/student");
+    }
+
     return (
         <>
             <Wrapper>
-                <ExitButton id = "voltar"> Voltar </ExitButton>
+                <ExitButton id = "voltar" onClick = {Link}> Voltar </ExitButton>
                 <Column>
                     <Form>
                         <h1> Relatório Semestral - PPgSI EACH-USP 
