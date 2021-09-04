@@ -10,6 +10,7 @@ import FormList from "./ProfessorFormList/index";
 import ProfessorFeedback from "./ProfessorFeedback/index";
 import CCPFeedback from "./CCPFeedback";
 import ViewProfessor from "./StudentFeedbackView/Professor";
+import ViewCPP from "./StudentFeedbackView/CCP";
 
 const Webpages = () => {
 	return (
@@ -32,6 +33,7 @@ const Webpages = () => {
 				path="/student/view/professor"
 				component={ViewProfessor}
 			/>
+			<Route exact path="/student/view/ccp" component={ViewCPP} />
 		</Router>
 	);
 };

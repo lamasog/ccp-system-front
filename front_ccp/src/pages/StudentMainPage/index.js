@@ -20,7 +20,7 @@ const StudentMainPage = () => {
 		history.push("/student/view/professor"); // para visualizar parecer do Orientador //
 	};
 	const Link4 = () => {
-		history.push("/student"); // para visualizar parecer da CCP //
+		history.push("/student/view/ccp"); // para visualizar parecer da CCP //
 	};
 
 	return (

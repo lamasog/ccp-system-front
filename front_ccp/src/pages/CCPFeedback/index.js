@@ -10,10 +10,6 @@ import { ContainerPage, ContainerMain } from "../../style/GlobalStyle";
 
 const CCPFeedback = () => {
 	const history = useHistory();
-	const Link = () => {
-		// para poder voltar para a página anterior //
-		history.push("/formlist");
-	};
 	const Link1 = () => {
 		// para poder voltar para a página inicial //
 		history.push("/");
@@ -61,7 +57,7 @@ const CCPFeedback = () => {
 					<button
 						className="buttonBackorExit"
 						id="voltar"
-						onClick={Link}
+						onClick={() => history.goBack()}
 					>
 						Voltar
 					</button>
