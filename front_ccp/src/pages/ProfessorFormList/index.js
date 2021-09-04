@@ -9,8 +9,8 @@ const FormList = () => {
     const Link1 = () => {               // para poder voltar para a página anterior //
         history.push("/professor");
     }
-    const Link2 = () => {
-        history.push("/professorfeedback")
+    const Link2 = () => {               // para analisar formulários //
+        history.push("/professorfeedback");
     }
 
     return (
