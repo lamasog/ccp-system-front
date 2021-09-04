@@ -1,16 +1,5 @@
 import styled from "styled-components";
 
-export const ContainerPage = styled.div`
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	flex-direction: row;
-`;
-
-export const ContainerMain = styled.div`
-	width: 75%;
-`;
-
 export const Header = styled.div`
 	display: flex;
 	flex-direction: row;

@@ -2,18 +2,11 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FormReportLink } from "../../components/FormReportLink/index";
 import DocX from "../../assets/docx_icon.png";
-import {
-	ContainerPage,
-	ContainerMain,
-	ExitButton,
-	Header,
-	Content,
-	StudentDiv,
-	TextField,
-} from "./style";
+import { ExitButton, Header, Content, StudentDiv, TextField } from "./style";
 import { SideBarContainer } from "../../components/SideBar";
 import Folder from "../../assets/Home.svg";
 import Exit2 from "../../assets/Exit2.svg";
+import { ContainerPage, ContainerMain } from "../../style/GlobalStyle";
 
 const CCPFeedback = () => {
 	const history = useHistory();

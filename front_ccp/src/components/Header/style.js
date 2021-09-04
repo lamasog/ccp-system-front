@@ -1,18 +1,21 @@
 import styled from "styled-components";
 
-export const Content = styled.div`
+export const HeaderStyled = styled.div`
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: space-between;
 	width: 100%;
 	padding: 5rem 2rem;
-	.contentButton {
-		width: 30rem;
+	a {
+		text-decoration: none;
+	}
+	.buttonExit {
+		width: 9.5rem;
 		height: 5rem;
-		background: var(--color-button-background);
-		color: var(--color-secondary-text);
+		background: var(--color-exit-button-background);
+		color: var(--color-exit-text-background);
 		border: 0;
-		border-radius: 2.5rem;
+		border-radius: 2.2rem;
 		cursor: pointer;
 		font-weight: 700;
 		display: flex;
@@ -22,22 +25,26 @@ export const Content = styled.div`
 		transition: 0.2s;
 		box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
 	}
-	.contentButton:hover {
+	.buttonExit:hover {
 		opacity: 0.8;
 	}
-	.containerContentInput {
+	.ContainerHeaderText {
 		line-height: 5rem;
-		text-align: left;
-		margin-bottom: 3rem;
+		text-align: center;
 	}
-	.contentText {
+	.headerText {
 		color: var(--color-primary-text);
-		font-size: 18px;
+		font-size: 25px;
 		display: inline-block;
 		vertical-align: middle;
 		line-height: normal;
 		font-weight: 700;
 		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 			Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	}
+	.imgExit {
+		width: 30%;
+		padding: 1px;
+		margin: auto 0;
 	}
 `;

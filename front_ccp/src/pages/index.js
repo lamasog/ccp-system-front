@@ -9,19 +9,29 @@ import ProfessorMainPage from "./ProfessorMainPage";
 import FormList from "./ProfessorFormList/index";
 import ProfessorFeedback from "./ProfessorFeedback/index";
 import CCPFeedback from "./CCPFeedback";
+import ViewProfessor from "./StudentFeedbackView/Professor";
 
 const Webpages = () => {
 	return (
 		<Router>
 			<Route exact path="/" component={LoginPage} />
-			<Route path="/ccp" component={MainPage} />
-			<Route path="/form" component={FormPage} />
-			<Route path="/student" component={StudentMainPage} />
-			<Route path="/professor" component={ProfessorMainPage} />
-			<Route path="/formlist" component={FormList} />
-			<Route path="/professorfeedback" component={ProfessorFeedback} />
-			<Route path="/register" component={RegisterPage} />
-			<Route path="/ccpfeedback" component={CCPFeedback} />
+			<Route exact path="/ccp" component={MainPage} />
+			<Route exact path="/form" component={FormPage} />
+			<Route exact path="/student" component={StudentMainPage} />
+			<Route exact path="/professor" component={ProfessorMainPage} />
+			<Route exact path="/formlist" component={FormList} />
+			<Route
+				exact
+				path="/professorfeedback"
+				component={ProfessorFeedback}
+			/>
+			<Route exact path="/register" component={RegisterPage} />
+			<Route exact path="/ccpfeedback" component={CCPFeedback} />
+			<Route
+				exact
+				path="/student/view/professor"
+				component={ViewProfessor}
+			/>
 		</Router>
 	);
 };

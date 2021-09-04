@@ -1,18 +1,5 @@
 import styled from "styled-components";
 
-export const ContainerPage = styled.div`
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	flex-direction: row;
-`;
-
-export const ContainerMain = styled.div`
-	width: 75%;
-	max-height: 100%;
-	overflow-y: auto;
-`;
-
 export const ExitButton = styled.div`
 	width: 9vw;
 	height: 6.75vh;

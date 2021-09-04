@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 export default createGlobalStyle`
   :root {
@@ -40,4 +41,17 @@ export default createGlobalStyle`
     font-size: 1.6rem;
     font-weight: 400;
   }
+`;
+
+export const ContainerPage = styled.div`
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+`;
+
+export const ContainerMain = styled.div`
+	width: 75%;
+	max-height: 100%;
+	overflow-y: auto;
 `;
