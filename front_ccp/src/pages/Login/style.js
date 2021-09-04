@@ -26,11 +26,15 @@ export const ContainerLogin = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
+	a {
+		text-decoration: none;
+	}
 	.buttonSubmit {
 		width: 20rem;
 		height: 5rem;
 		background: var(--color-button-background);
 		color: var(--color-highlight-text);
+		color: #ffffff;
 		border: 0;
 		border-radius: 0.6rem;
 		cursor: pointer;
@@ -38,7 +42,6 @@ export const ContainerLogin = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		text-decoration: none;
 		transition: 0.2s;
 		margin: 2rem 0 1.2rem 0;
 	}
