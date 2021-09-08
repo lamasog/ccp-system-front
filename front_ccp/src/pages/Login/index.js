@@ -1,11 +1,60 @@
-import React from "react";
+import React, {useState} from "react";
 import { ContainerPage, ContainerMain, ContainerLogin } from "./style";
 import { Input } from "../../components/Input/index";
 import { Link } from "react-router-dom";
 import { SideBarContainer } from "../../components/SideBar";
 import Folder from "../../assets/Folder.svg";
+import api from '../../services/api';
+import { login } from '../../services/auth';
 
 const LoginPage = () => {
+	const [codigo, setCodigo] = useState('');
+    const [password, setPassword] = useState('');
+    const [person, setPerson] = useState('');
+
+    async function handleSubmit(e) {
+		setPerson("Estudante")
+        e.preventDefault();
+		console.log(codigo, "-", password, "-", person)
+		if(1){
+			try {
+				const response = await api.post('https://ccpsys.herokuapp.com/alunos/login',
+				{
+					codigo,
+					password
+				});
+				
+				console.log(Object.values(response.data)[0].hasOwnProperty('cod_orientador'));
+				if(response.status === 200) {
+					login(response.data.token);
+					console.log("logging");
+				}
+	
+			} catch(error) {
+				console.log(error);
+				console.log(error.response)
+			}
+		}
+		else if(person === "Orientador"){
+			try {
+				const response = await api.post('http://localhost:5000/orientadores/login',
+				{
+					codigo,
+					password
+				});
+				
+				if(response.status === 200) {
+					login(response.data.token);
+					console.log("logging");
+				}
+	
+			} catch(error) {
+				console.log(error);
+				console.log(error.response)
+			}
+		}
+    }
+
 	return (
 		<ContainerPage>
 			<ContainerMain>
@@ -21,14 +70,22 @@ const LoginPage = () => {
 				</SideBarContainer>
 				<ContainerLogin>
 					<h1>Login</h1>
-					<form>
-						<Input placeholder="Matricula" type="name" />
-						<Input placeholder="Senha" type="password" />
-						<Link to="/">
-							<button className="buttonSubmit" type="submit">
-								ENTRAR
-							</button>{" "}
-						</Link>
+					<form onSubmit={handleSubmit}>
+						
+						<Input 
+							placeholder="Matricula" 
+							type="name" 
+							onChange = {(e)=> setCodigo(e.target.value)}
+						/>
+						<Input 
+							placeholder="Senha" 
+							type="password" 
+							onChange={(e) => setPassword(e.target.value)}
+                        	required
+						/>
+						<button className="buttonSubmit" type="submit">
+							ENTRAR
+						</button>
 					</form>
 				</ContainerLogin>
 			</ContainerMain>
