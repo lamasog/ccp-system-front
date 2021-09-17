@@ -1,59 +1,78 @@
-import React, {useState} from "react";
-import { ContainerPage, ContainerMain, ContainerLogin } from "./style";
+import React, { useState } from "react";
+import {
+	ContainerPage,
+	ContainerMain,
+	ContainerLogin,
+	DivIncorrect,
+} from "./style";
 import { Input } from "../../components/Input/index";
 import { Link } from "react-router-dom";
 import { SideBarContainer } from "../../components/SideBar";
 import Folder from "../../assets/Folder.svg";
-import api from '../../services/api';
-import { login } from '../../services/auth';
+import api from "../../services/api";
+import { login } from "../../services/auth";
 
 const LoginPage = () => {
-	const [codigo, setCodigo] = useState('');
-    const [password, setPassword] = useState('');
-    const [person, setPerson] = useState('');
+	const [codigo, setCodigo] = useState("");
+	const [password, setPassword] = useState("");
+	const [person, setPerson] = useState("");
+	const [incorrect, setIncorrect] = useState(false);
 
-    async function handleSubmit(e) {
-		setPerson("Estudante")
-        e.preventDefault();
-		console.log(codigo, "-", password, "-", person)
-		if(1){
+	async function handleSubmit(e) {
+		setPerson("Estudante");
+		e.preventDefault();
+		console.log(codigo, "-", password, "-", person);
+		if (1) {
 			try {
-				const response = await api.post('https://ccpsys.herokuapp.com/alunos/login',
-				{
-					codigo,
-					password
-				});
-				
-				console.log(Object.values(response.data)[0].hasOwnProperty('cod_orientador'));
-				if(response.status === 200) {
+				const response = await api.post(
+					"https://ccpsys.herokuapp.com/alunos/login",
+					{
+						codigo,
+						password,
+					}
+				);
+
+				console.log(
+					Object.values(response.data)[0].hasOwnProperty(
+						"cod_orientador"
+					)
+				);
+				if (response.status === 200) {
 					login(response.data.token);
 					console.log("logging");
 				}
-	
-			} catch(error) {
+			} catch (error) {
 				console.log(error);
-				console.log(error.response)
+				console.log(error.response);
+				if (error.response.status === 404) {
+					console.log(error.response.status);
+					setIncorrect(true);
+				}
 			}
-		}
-		else if(person === "Orientador"){
+		} else if (person === "Orientador") {
 			try {
-				const response = await api.post('http://localhost:5000/orientadores/login',
-				{
-					codigo,
-					password
-				});
-				
-				if(response.status === 200) {
+				const response = await api.post(
+					"http://localhost:5000/orientadores/login",
+					{
+						codigo,
+						password,
+					}
+				);
+
+				if (response.status === 200) {
 					login(response.data.token);
 					console.log("logging");
 				}
-	
-			} catch(error) {
+			} catch (error) {
 				console.log(error);
-				console.log(error.response)
+				console.log(error.response);
+				if (error.response.status === 404) {
+					console.log(error.response.status);
+					setIncorrect(true);
+				}
 			}
 		}
-    }
+	}
 
 	return (
 		<ContainerPage>
@@ -71,18 +90,22 @@ const LoginPage = () => {
 				<ContainerLogin>
 					<h1>Login</h1>
 					<form onSubmit={handleSubmit}>
-						
-						<Input 
-							placeholder="Matricula" 
-							type="name" 
-							onChange = {(e)=> setCodigo(e.target.value)}
+						<Input
+							placeholder="Matricula"
+							type="name"
+							onChange={(e) => setCodigo(e.target.value)}
 						/>
-						<Input 
-							placeholder="Senha" 
-							type="password" 
+						<Input
+							placeholder="Senha"
+							type="password"
 							onChange={(e) => setPassword(e.target.value)}
-                        	required
+							required
 						/>
+						{incorrect && (
+							<DivIncorrect>
+								Matricula ou senha incorretos
+							</DivIncorrect>
+						)}
 						<button className="buttonSubmit" type="submit">
 							ENTRAR
 						</button>

@@ -57,3 +57,10 @@ export const ContainerLogin = styled.div`
 		justify-content: space-around;
 	}
 `;
+
+export const DivIncorrect = styled.div`
+	background-color: rgb(140, 25, 25);
+	color: #ffffff;
+	padding: 2px 5px;
+	border-radius: 7px;
+`;
