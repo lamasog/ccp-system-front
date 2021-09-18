@@ -22,6 +22,7 @@ const StudentMainPage = () => {
 	const Link4 = () => {
 		history.push("/student/view/ccp"); // para visualizar parecer da CCP //
 	};
+	const username = localStorage.getItem('@front-ccp/username');
 
 	return (
 		<ContainerPage>
@@ -29,7 +30,7 @@ const StudentMainPage = () => {
 				<img src={Folder} alt="Folder"></img>
 			</SideBarContainer>
 			<ContainerMain>
-				<Header titulo="Olá fulano aluno"></Header>
+				<Header titulo= {"Ola " + username} ></Header>
 				<hr />
 				<Content>
 					<div className="containerContentInput">
