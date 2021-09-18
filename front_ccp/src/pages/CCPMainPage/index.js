@@ -1,11 +1,22 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { SideBarContainer } from "../../components/SideBar";
-import { Link } from "react-router-dom";
 import Folder from "../../assets/Home.svg";
 import { ContainerPage, ContainerMain, Header, Content } from "./style";
 import Exit2 from "../../assets/Exit2.svg";
 
 const CCPMainPage = () => {
+	const history = useHistory();
+	const Link1 = () => {
+		history.push("/formlist"); 
+	};
+	const Link2 = () => {
+		history.push("/recordstudent"); 
+	};
+	const Link3 = () => {
+		history.push("/"); 
+	};
+
 	return (
 		<ContainerPage>
 			<SideBarContainer>
@@ -18,7 +29,7 @@ const CCPMainPage = () => {
 					</div>
 					<button className="buttonExit" type="submit">
 						Sair
-						<img className="imgExit" src={Exit2} alt="Exit"></img>
+						<img className="imgExit" src={Exit2} alt="Exit"  onClick={Link3}></img>
 					</button>
 				</Header>
 				<hr />
@@ -35,7 +46,7 @@ const CCPMainPage = () => {
 						<span className="contentText">
 							Visulizar histórico dos alunos
 						</span>
-						<button className="contentButton" type="submit">
+						<button className="contentButton" type="submit" onClick={Link2}>
 							Visualizar
 						</button>
 					</div>

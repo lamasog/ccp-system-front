@@ -11,6 +11,7 @@ import ProfessorFeedback from "./ProfessorFeedback/index";
 import CCPFeedback from "./CCPFeedback";
 import ViewProfessor from "./StudentFeedbackView/Professor";
 import ViewCPP from "./StudentFeedbackView/CCP";
+import RecordStudents from "./AcademicRecordPage";
 
 const Webpages = () => {
 	return (
@@ -21,6 +22,7 @@ const Webpages = () => {
 			<Route exact path="/student" component={StudentMainPage} />
 			<Route exact path="/professor" component={ProfessorMainPage} />
 			<Route exact path="/formlist" component={FormList} />
+			<Route exact path="/recordstudent" component={RecordStudents} />
 			<Route
 				exact
 				path="/professorfeedback"
