@@ -1,75 +1,91 @@
 import React, { useState } from "react";
-import {
-	ContainerPage,
-	ContainerMain,
-	ContainerLogin,
-	DivIncorrect,
-} from "./style";
+import { ContainerPage, ContainerMain, ContainerLogin} from "./style";
 import { Input } from "../../components/Input/index";
 import { Link } from "react-router-dom";
 import { SideBarContainer } from "../../components/SideBar";
 import Folder from "../../assets/Folder.svg";
-import api from "../../services/api";
-import { login } from "../../services/auth";
+import api from '../../services/api';
+import { login } from '../../services/auth';
+import {Radio} from 'antd'
 
 const LoginPage = () => {
-	const [codigo, setCodigo] = useState("");
-	const [password, setPassword] = useState("");
-	const [person, setPerson] = useState("");
-	const [incorrect, setIncorrect] = useState(false);
+	const [codigo, setCodigo] = useState('');
+    const [password, setPassword] = useState('');
+    const [person, setPerson] = useState('');
+	const [value200, setValue200] =useState(false);
 
-	async function handleSubmit(e) {
-		setPerson("Estudante");
-		e.preventDefault();
-		console.log(codigo, "-", password, "-", person);
-		if (1) {
+    async function handleSubmit(e) {
+        e.preventDefault();
+		
+		if(person === "Estudante"){
 			try {
-				const response = await api.post(
-					"https://ccpsys.herokuapp.com/alunos/login",
-					{
-						codigo,
-						password,
-					}
-				);
-
-				console.log(
-					Object.values(response.data)[0].hasOwnProperty(
-						"cod_orientador"
-					)
-				);
-				if (response.status === 200) {
+				const response = await api.post('https://ccpsys.herokuapp.com/alunos/login',
+				{
+					codigo,
+					password
+				});
+				//console.log(Object.values(response.data)[0].hasOwnProperty('cod_orientador'));
+				setValue200(true)
+				if(response.status === 200) {
 					login(response.data.token);
-					console.log("logging");
+					localStorage.setItem('@front-ccp/username', response.data.aluno.name);
 				}
 			} catch (error) {
-				console.log(error);
-				console.log(error.response);
+				setPerson("Error")
 				if (error.response.status === 404) {
-					console.log(error.response.status);
-					setIncorrect(true);
+					alert("Matricula Incorreta!")
 				}
+				if (error.response.status === 400) {
+					alert("Senha Incorreta!")
+				}
+				//console.log(error);
+				//console.log(error.response);
 			}
 		} else if (person === "Orientador") {
 			try {
-				const response = await api.post(
-					"http://localhost:5000/orientadores/login",
-					{
-						codigo,
-						password,
-					}
-				);
-
-				if (response.status === 200) {
+				const response = await api.post('https://ccpsys.herokuapp.com/orientadores/login',
+				{
+					codigo,
+					password
+				});
+				setValue200(true)
+				if(response.status === 200) {
 					login(response.data.token);
-					console.log("logging");
+					localStorage.setItem('@front-ccp/username', response.data.orientador.name);
 				}
 			} catch (error) {
-				console.log(error);
-				console.log(error.response);
+				setPerson("Error")
 				if (error.response.status === 404) {
-					console.log(error.response.status);
-					setIncorrect(true);
+					alert("Matricula Incorreta!")
 				}
+				if (error.response.status === 400) {
+					alert("Senha Incorreta!")
+				}
+				//console.log(error);
+				//console.log(error.response);
+			}
+		}else{
+			try {
+				const response = await api.post('https://ccpsys.herokuapp.com/ccp/login',
+				{
+					codigo,
+					password
+				});
+				setValue200(true)
+				if(response.status === 200) {
+					login(response.data.token);
+					localStorage.removeItem('@front-ccp/username');
+				}
+			} catch (error) {
+				setPerson("Error")
+				if (error.response.status === 404) {
+					alert("Matricula Incorreta!")
+				}
+				if (error.response.status === 400) {
+					alert("Senha Incorreta!")
+				}
+				//console.log(error);
+				//console.log(error.response);	
 			}
 		}
 	}
@@ -90,10 +106,21 @@ const LoginPage = () => {
 				<ContainerLogin>
 					<h1>Login</h1>
 					<form onSubmit={handleSubmit}>
-						<Input
-							placeholder="Matricula"
-							type="name"
-							onChange={(e) => setCodigo(e.target.value)}
+						<Radio.Group 
+							size="large"
+							onChange={(e) => setPerson(e.target.value)}
+							required
+						>
+							<Radio.Button checked value="Estudante">Estudante</Radio.Button>
+							<Radio.Button value="Orientador">Orientador</Radio.Button>
+							<Radio.Button value="CCP">CCP</Radio.Button>
+						</Radio.Group>
+						<Input 
+							placeholder="Matricula" 
+							type="text" 
+							maxlength="6"
+							onChange = {(e)=> setCodigo(e.target.value)}
+							required
 						/>
 						<Input
 							placeholder="Senha"
@@ -101,14 +128,35 @@ const LoginPage = () => {
 							onChange={(e) => setPassword(e.target.value)}
 							required
 						/>
-						{incorrect && (
-							<DivIncorrect>
-								Matricula ou senha incorretos
-							</DivIncorrect>
-						)}
-						<button className="buttonSubmit" type="submit">
-							ENTRAR
-						</button>
+						{(person==="Estudante" && value200===true) ?
+							(<Link to="/student">
+								<button className="buttonSubmit" type="submit">
+									ENTRAR
+								</button>
+							</Link>): (<></>)
+						}
+						{
+						(person==="Orientador" && value200===true) ?
+							(<Link to="/professor">
+							<button className="buttonSubmit" type="submit">
+								ENTRAR
+							</button>
+							</Link>):(<></>)
+						}
+						{ (person==="CCP" && value200===true) ?
+							(<Link to="/ccp">
+								<button className="buttonSubmit" type="submit">
+									ENTRAR
+								</button>
+							</Link>):
+							(<></>)
+						}
+						{(value200 === false)?
+							(<button className="buttonSubmit" type="submit">
+								ENTRAR
+							</button>)
+							:(<></>)
+						}
 					</form>
 				</ContainerLogin>
 			</ContainerMain>
