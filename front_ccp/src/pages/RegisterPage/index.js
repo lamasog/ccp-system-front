@@ -4,15 +4,67 @@ import {Input} from '../../components/Input/index'
 import { Link } from 'react-router-dom';
 import {SideBarContainer} from '../../components/SideBar'
 import Folder from '../../assets/Folder.svg' 
+import api from '../../services/api';
+import { login } from '../../services/auth';
 
-function Register(props) {
-    const [inputAluno, setInputAluno] = useState("Orientador");
+const Register=(props)=> {
+    const [nome, setNome] = useState('');
+    const [codigo, setCodigo] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [aluno, setAluno] = useState('Orientador');
+    const [cod_orientador, setCodigoOrientador] = useState('');
+    const [curso, setCurso] = useState('Mestrado');
+    const [value200, setValue200] =useState(false);
 
+    async function handleSubmit(e) {
+        e.preventDefault();
+		let nomeCompleto = nome.split(' ')
+        let name = nomeCompleto[0], surname = nomeCompleto[1];
 
-    function handleMenuClick(e) {
-        setInputAluno(e.target.value);
+		if(aluno === "Aluno"){
+			try {
+				const response = await api.post('https://ccpsys.herokuapp.com/alunos/register',
+				{
+					codigo,
+                    name,
+                    surname,
+                    email, 
+                    cod_orientador, 
+                    curso,
+					password
+				});
+                setValue200(true)
+				if(response.status === 200) {
 
-      }
+					localStorage.setItem('@front-ccp/username', response.data.aluno.name);
+				}
+			} catch (error) {
+				console.log(error)
+				console.log(error.response);
+			}
+		} else {
+			try {
+				const response = await api.post('https://ccpsys.herokuapp.com/orientadores/register',
+				{
+					codigo,
+                    name,
+                    surname,
+                    email, 
+					password
+				});
+                setValue200(true)
+				if(response.status === 200) {
+                    login(response.data.token);
+                    localStorage.setItem('@front-ccp/username', response.data.orientador.name);
+				}
+			} catch (error) {
+                console.log(error)
+				console.log(error.response);
+			}
+		}
+	}
+
   return (
     <ContainerPage>
         <ContainerMain>
@@ -26,37 +78,48 @@ function Register(props) {
             </SideBarContainer>
             <ContainerRegister>
                 <h1>Registre-se</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <Input 
                         placeholder="Nome Completo"
                         type="name"
+                        onChange={(e) => setNome(e.target.value)}
                     />
                     <Input 
                         placeholder="Matricula"
                         type="number"
+                        onChange={(e) => setCodigo(e.target.value)}
                     />
                     <Input 
                         placeholder="E-Mail" 
                         type="email"
                         required
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <Input 
                         placeholder="Senha"
                         type="password"
+                        onChange={(e) => setPassword(e.target.value)}
                     />
-                    <select value={inputAluno} onChange={handleMenuClick}>
+                    <select value={aluno} onChange={(e) => setAluno(e.target.value)}>
                         <option value="Orientador">Orientador</option>
                         <option value="Aluno">Aluno</option>
                     </select>
-                    {inputAluno==="Aluno" ? <Input placeholder="Nome do Orientador"/> : <></>}
-                    {inputAluno==="Aluno" ? 
-                        <select>
+                    {aluno==="Aluno" ? <Input placeholder="Código do Orientador" onChange={(e) => setCodigoOrientador(e.target.value)}/> : <></>}
+                    {aluno==="Aluno" ? 
+                        <select onChange={(e) => setCurso(e.target.value)}>
                             <option value="Mestrado">Mestrado</option>
                             <option value="Doutorado">Doutorado</option>
                         </select>
                      : <></>}
-                    {inputAluno==="Aluno" ?<Link to="/student"><button className="buttonSubmit" type="submit">Cadastrar</button></Link>
-                        : <Link to="/professor"><button className="buttonSubmit" type="submit">Cadastrar</button></Link>}
+                    {(aluno==="Aluno" && value200===true) ?<Link to="/student"><button className="buttonSubmit" type="submit">Cadastrar</button></Link>
+                        : <></>}
+                    {(aluno==="Orientador" && value200===true) ?<Link to="/professor"><button className="buttonSubmit" type="submit">Cadastrar</button></Link>:<></>}
+                    {(value200 === false)?
+							(<button className="buttonSubmit" type="submit">
+								ENTRAR
+							</button>)
+							:(<></>)
+						}
                 </form>
             </ContainerRegister>
         </ContainerMain>        

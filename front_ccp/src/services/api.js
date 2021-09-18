@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from './auth';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000/', 
+    baseURL: 'https://ccpsys.herokuapp.com/', 
 });
 
 api.interceptors.request.use(async config => {
