@@ -121,7 +121,6 @@ const CCPFeedback = () => {
 								/>
 								<label for="reprovado"> Reprovado</label>
 							</div>
-
 							<span className="subContentText2">Descrição:</span>
 							<br />
 							<TextField rows="4" id="p1" />
