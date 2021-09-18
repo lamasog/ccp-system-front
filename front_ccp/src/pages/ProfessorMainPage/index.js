@@ -4,7 +4,6 @@ import { SideBarContainer } from "../../components/SideBar";
 import Folder from "../../assets/Home.svg";
 import { Content } from "./style";
 import { ContainerPage, ContainerMain } from "../../style/GlobalStyle";
-import Exit2 from "../../assets/Exit2.svg";
 import Header from "../../components/Header";
 
 const ProfessorMainPage = () => {
@@ -19,6 +18,7 @@ const ProfessorMainPage = () => {
 	const Link3 = () => {
 		history.push("/professor"); // para visualizar formulários já avaliados //
 	};
+	const username = localStorage.getItem('@front-ccp/username');
 
 	return (
 		<ContainerPage>
@@ -26,7 +26,7 @@ const ProfessorMainPage = () => {
 				<img src={Folder} alt="Folder"></img>
 			</SideBarContainer>
 			<ContainerMain>
-				<Header titulo="Olá, orientador"></Header>
+				<Header titulo= {"Ola " + username}></Header>
 				<hr />
 				<Content>
 					<div className="containerContentInput">
