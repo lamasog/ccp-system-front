@@ -79,13 +79,40 @@ const FormPage = () => {
 	async function handleSubmit(e) {
 		e.preventDefault();
 		alert("clique teste");
+		const respostas = [
+			linkLattes,
+			data,
+			resulRelatorio,
+			semeste,
+			aprovQtd,
+			aprovQtdOpt,
+			divulgados,
+			reprovQtd,
+			reprovQtdSemestre,
+			proficIdiomas,
+			exameQualificacao,
+			tempoLimMaxQual,
+			tempoLimMaxTese,
+			qtdArtigosAceitos,
+			qtdArtigosAguardaResposta,
+			artigoEmPreparacao,
+			estagioPesquisa,
+			congresso,
+			congressoExterior,
+			estagioExterior,
+			algoAMais,
+		];
+		console.log(respostas);
 		try {
 			/*
             const response = await api.post('https://ccpsys.herokuapp.com/alunos/form',
 				{
-                    codigo,
+                    numUsp,
                     aluno, 
-					
+                    orientador, 
+                    email,
+                    curso,
+                    respostas
 				});
             */
 		} catch (e) {}
