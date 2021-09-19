@@ -12,9 +12,9 @@ import {
 	LargeTextField,
 	ButtonField,
 } from "./styles";
+import api from "../../services/api";
 
 const FormPage = () => {
-	const [codigo, setCodigo] = useState(0);
 	const [email, setEmail] = useState("");
 	const [aluno, setAluno] = useState("");
 	const [orientador, setOrientador] = useState("");
@@ -23,7 +23,7 @@ const FormPage = () => {
 	const [data, setData] = useState("");
 	const [resulRelatorio, setResulRelatorio] = useState("");
 	const [curso, setCurso] = useState("");
-	const [semeste, setSemestre] = useState("");
+	const [semestre, setSemestre] = useState("");
 	const [aprovQtd, setAprovQtd] = useState();
 	const [aprovQtdOpt, setAprovQtdOpt] = useState();
 	const [divulgados, setDivulgados] = useState("");
@@ -48,47 +48,58 @@ const FormPage = () => {
 		// para poder voltar para a página anterior //
 		history.push("/student");
 	};
-
-	console.log(email);
-	console.log(aluno);
-	console.log(orientador);
-	console.log(numUsp);
-	console.log(linkLattes);
-	console.log(data);
-	console.log(resulRelatorio);
-	console.log(curso);
-	console.log(semeste);
-	console.log(aprovQtd);
-	console.log(aprovQtdOpt);
-	console.log(divulgados);
-	console.log(reprovQtd);
-	console.log(reprovQtdSemestre);
-	console.log(proficIdiomas);
-	console.log(exameQualificacao);
-	console.log(tempoLimMaxQual);
-	console.log(tempoLimMaxTese);
-	console.log(qtdArtigosAceitos);
-	console.log(qtdArtigosAguardaResposta);
-	console.log(artigoEmPreparacao);
-	console.log(estagioPesquisa);
-	console.log(congresso);
-	console.log(congressoExterior);
-	console.log(estagioExterior);
-	console.log(algoAMais);
+	const [value200, setValue200] = useState(false);
 
 	async function handleSubmit(e) {
 		e.preventDefault();
-		alert("clique teste");
+		let nomeCompleto = aluno.split(" ");
+		let name = nomeCompleto[0],
+			surname = nomeCompleto[1];
+
+		const respostas = [
+			linkLattes,
+			data,
+			resulRelatorio,
+			semestre,
+			aprovQtd,
+			aprovQtdOpt,
+			divulgados,
+			reprovQtd,
+			reprovQtdSemestre,
+			proficIdiomas,
+			exameQualificacao,
+			tempoLimMaxQual,
+			tempoLimMaxTese,
+			qtdArtigosAceitos,
+			qtdArtigosAguardaResposta,
+			artigoEmPreparacao,
+			estagioPesquisa,
+			congresso,
+			congressoExterior,
+			estagioExterior,
+			algoAMais,
+		];
 		try {
-			/*
-            const response = await api.post('https://ccpsys.herokuapp.com/alunos/form',
+			const response = await api.post(
+				"https://ccpsys.herokuapp.com/relatorios/alunos/form",
 				{
-                    codigo,
-                    aluno, 
-					
-				});
-            */
-		} catch (e) {}
+					numUsp,
+					name,
+					surname,
+					email,
+					curso,
+					respostas,
+				}
+			);
+			setValue200(true);
+			if (response.status === 200) {
+				alert("Relatorio enviado com sucesso");
+			}
+			console.log(respostas);
+		} catch (e) {
+			console.log(e);
+			console.log(e.response);
+		}
 	}
 
 	return (
