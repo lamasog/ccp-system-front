@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 /*import Header from "../../../components/Header";*/
 import { ContainerPage, ContainerMain } from "../../../style/GlobalStyle";
 import { SideBarContainer } from "../../../components/SideBar";
@@ -6,6 +6,7 @@ import Folder from "../../../assets/Home.svg";
 import { Content, Header } from "../style";
 import Exit2 from "../../../assets/Exit2.svg";
 import { useHistory } from "react-router-dom";
+import api from "../../../services/api";
 
 const Professor = () => {
 	const history = useHistory();
@@ -21,6 +22,19 @@ const Professor = () => {
 		// para poder voltar para a página inicial //
 		history.push("/");
 	};
+
+	const [value200, setValue200] = useState(false);
+	const [descricao, setDescricao] = useState("");
+
+	useEffect(() => {
+		api.get("https://ccpsys.herokuapp.com/relatorios/alunos/read").then(
+			(response) =>
+				setDescricao(response.data).catch((e) => {
+					console.log("Algo deu errado" + e);
+				}),
+			(response) => console.log(response.data)
+		);
+	}, []);
 
 	return (
 		<ContainerPage>

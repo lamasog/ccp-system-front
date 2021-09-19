@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ContainerPage, ContainerMain } from "../../../style/GlobalStyle";
 import { SideBarContainer } from "../../../components/SideBar";
 import { Content, Header } from "../style";
 import Exit2 from "../../../assets/Exit2.svg";
 import { useHistory } from "react-router-dom";
 import Folder from "../../../assets/Home.svg";
+import api from "../../../services/api";
 
 const CCP = () => {
 	const history = useHistory();
@@ -23,6 +24,18 @@ const CCP = () => {
 		descricao:
 			"O aluno foi reprovado por fazer festas no estilo american pie na cantina",
 	};
+	const [value200, setValue200] = useState(false);
+	const [descricao, setDescricao] = useState("");
+
+	useEffect(() => {
+		api.get("https://ccpsys.herokuapp.com/relatorios/alunos/read").then(
+			(response) =>
+				setDescricao(response.data).catch((e) => {
+					console.log("Algo deu errado" + e);
+				}),
+			(response) => console.log(response.data)
+		);
+	}, []);
 
 	return (
 		<ContainerPage>

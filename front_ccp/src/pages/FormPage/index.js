@@ -52,6 +52,10 @@ const FormPage = () => {
 
 	async function handleSubmit(e) {
 		e.preventDefault();
+		let nomeCompleto = aluno.split(" ");
+		let name = nomeCompleto[0],
+			surname = nomeCompleto[1];
+
 		const respostas = [
 			linkLattes,
 			data,
@@ -80,8 +84,8 @@ const FormPage = () => {
 				"https://ccpsys.herokuapp.com/relatorios/alunos/form",
 				{
 					numUsp,
-					aluno,
-					orientador,
+					name,
+					surname,
 					email,
 					curso,
 					respostas,
