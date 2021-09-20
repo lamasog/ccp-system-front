@@ -1057,7 +1057,7 @@ const FormPage = () => {
 							<SmallTextField
 								type="text"
 								id="p26"
-								value={setEstagioExterior}
+								value={estagioExterior}
 								onChange={(e) =>
 									setEstagioExterior(e.target.value)
 								}
